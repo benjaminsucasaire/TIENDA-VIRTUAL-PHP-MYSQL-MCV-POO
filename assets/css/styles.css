@@ -1,0 +1,664 @@
+/*GENERALES*/
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: open Arial, Helvetica, sans-serif;
+}
+body {
+  background: url(../img/fondo-hd.jpg);
+
+}
+
+
+a {
+  color: #01b1ea;
+}
+
+/* utlizamos una seudoclase para que no cambien de color al visitar el enlace */
+a:visited {
+  color: #01b1ea;
+}
+/*utlizamos una seudaclase cuando el curso pase sobre el enlace*/
+a:hover {
+  color: #555;
+}
+/*--------------------------HEADER-----------------------------------------------*/
+#header {
+  margin: 0px auto;
+  background: url(../img/bannerf.jpg);
+
+  /* altura espesifica*/
+  background-position: center; /* centrar la imagen*/
+  background-repeat: no-repeat; /* para que no repita la misma imagen */
+  background-size: cover; /*Cambiar el tamaño de la imagen de fondo para cubrir todo el contenedor */
+  padding: 8px;
+}
+
+#logo {
+  display: flex;
+  column-gap: 25px;
+}
+
+#logo img {
+  width: 22%;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  #logo img {
+    width: 27%;
+  }
+}
+
+/* @media screen and (min-width: 640px) and (max-width: 1280px) {
+    .menu {
+      background: red;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .menu {
+      background: green;
+    }
+  } */
+
+#logo a {
+  font-size: 40px;
+  letter-spacing: 5px; /*separcion entre letra*/
+  font-family: open Arial, Helvetica, sans-serif;
+  text-transform: uppercase; /*para que el texto este en mayuscula*/
+  color: #01b1ea;
+  text-decoration: none;
+  font-weight: bold; /*para que sea en negrita el texto*/
+  align-self: center; /*esto permite centrar verticalmente*/
+  text-shadow: 0px 2px 1px #222; /*esto es para la sombra de las letras*/
+  transition: all 300ms; /*esto permite que tenga un efecto de transicion*/
+}
+
+#logo a:hover {
+  text-shadow: 0px 2px 1px #222, 0px 0px 4px #01b1ea; /*esto es para la sombra de las letras*/
+}
+@media screen and (max-width: 360px) {
+  #logo {
+    flex-direction: column;
+    row-gap: 17px;
+  }
+  #logo a {
+    font-size: 25px;
+    letter-spacing: 2px; /*separcion entre letra*/
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 555px) {
+  #logo a {
+    font-size: 34px;
+    letter-spacing: 2px; /*separcion entre letra*/
+  }
+}
+/*-----------------------El menu-------------------------------------------*/
+#menu {
+  background: #222;
+  color: white;
+  border-bottom: 4px solid #01b1ea;
+  margin-bottom: 30px;
+}
+
+#menu ul {
+  list-style: none;
+}
+
+/*------------------Responsivo-----------------*/
+@media screen and (max-width: 750px) {
+  #menu ul li a {
+    padding: 18px 25px 18px 10px;
+    border-bottom: 1px solid #363636;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    /* column-gap: 10px; */
+    padding-left: 20px;
+  }
+}
+
+/*-------------------------------------------------*/
+
+#menu ul li {
+  /* padding: 18px 25px 18px 10px; */
+  border-right: 1px solid #363636;
+  text-align: center;
+}
+/*utilizamos un seudo elemento, el cual agarra al primer hijo de ul li*/
+#menu ul li:first-child {
+  border-left: 1px solid #363636;
+}
+#menu a {
+  /* Esto permite que que podamos modifcar s alto y ancho */
+  display: block;
+  padding: 18px 25px 18px 10px;
+  color: white;
+  text-decoration: none;
+  /*esto permite tener una transicion muy elengante*/
+  transition: all 300ms;
+}
+
+#menu a:hover {
+  background-color: #01b1ea;
+}
+
+/*--------------Content-----------------*/
+#content {
+  overflow: hidden; /*esto permite que cuando hay elementos que se desboren que no se vea ese desbordamiento*/
+  display: flex;
+  flex-direction: column;
+}
+
+/*barra lateral*/
+#lateral {
+  width: 100%;
+   
+}
+#lateral .block_aside {
+  /*le colocamos un display block para que actue como bloque */
+  display: block;
+  width: 90%;
+  background-color: white;
+  margin: 5px auto;
+  padding: 10px;
+   /*esto permite tener la sombra*/
+   box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+}
+
+
+#lateral h3 {
+  color: #222;
+
+  width: 100%;
+  text-align: center;
+  padding: 2px 0px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  /*para que sea una letra en negrita*/
+  font-weight: 900;
+  background-color: #e1e1e1;
+  border-bottom: 4px solid #01b1ea;
+}
+#lateral ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#lateral ul li {
+  /*esto hace que se pogan como cuadrados uno en cada linea*/
+  list-style: square;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/*acho del formulario adaptable*/
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  .form_container{
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .form_container{
+    width: 50%;
+  }
+}
+
+/*formularios*/
+
+label,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select, textarea {
+  /* para utilizarlo como bloque  */
+  display: block;
+  width: 95%;
+
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+textarea{
+  min-height: 70px;
+}
+
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select, textarea {
+  border: 1px solid #c9c9c9;
+  /*sombreado dentro del campo*/
+  box-shadow: 0px 0px 2px #ccc inset;
+  background-color: white;
+  padding: 2px;
+  color: gray;
+  transition: all 300ms;
+}
+
+/*utilizaremos focus un seudoelemento - para cuando este ensima de ese campo es parecido al hpver pero para cajas input*/
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus, textarea:focus {
+  border: 3px solid #1579b5;
+  color:black;
+}
+
+input[type="button"],
+input[type="submit"],button,
+.button {
+  /*para poder utilizarlo como como cajas o bloque*/
+  display: block;
+  border-radius: 2px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  background-color: #2979cd;
+  border: 1px solid #11608e;
+  /*permite ver una mano sobre un elemento*/
+  cursor: pointer;
+}
+.button{
+  background-color: #33AE3D;
+  color: white !important;
+  text-decoration: none;
+}
+
+.button-ancho{
+  width: 90%;
+}
+.button-small{
+  width: 30%;
+  text-align: center;
+  /* width: 20%; */     
+  margin-bottom: 20px;
+}
+.button-delgado{
+ padding: 0px !important; 
+ background-color:rgb(255, 174, 0);
+}
+
+label,
+input[type="button"],
+input[type="submit"],
+button {
+  margin-top: 10px;
+}
+/*------------------------------------------------*/
+.alert_green{
+  display: inline-block;
+  color:white;
+  background-color:green;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.alert_red{
+  display: inline-block;
+  color:white;
+  background-color:red;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+/*----------------------GESTION-PRODUCTOS-------------------*/
+.contenedorbotonEE{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+}
+/*acho del formulario adaptable*/
+/* @media screen and (min-width: 750px) and (max-width: 1200px) {
+  .contenedorbotonEE{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+} */
+@media screen and (min-width: 750px) {
+  .contenedorbotonEE{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+}
+
+
+.boton-editar{
+  background-color: rgb(255, 166, 0);
+  border: 2px solid black;
+  margin: 5px 0px;
+}
+.boton-editar:hover{
+  background-color: rgb(206, 134, 0);
+
+}
+.boton-eliminar{
+  background-color: rgb(224, 10, 10);
+  border: 2px solid black;
+  margin: 5px 0px;
+}
+.boton-eliminar:hover{
+  background-color: rgb(156, 4, 4);
+  
+}
+/*------------------------editar productos-----------------------------*/
+.imagen-miniatura{
+max-width: 250px !important;
+}
+
+/*.------------------ESTILO DE LA TABLA CATEGORIA----------------------*/
+/* table{
+  text-align: center;
+  width: 100%;
+  border: 1px solid #555;
+  
+}
+table .cabecera{
+ 
+  background-color: rgb(187, 187, 187);
+}
+td{
+  border-top: 1px solid #ccc;
+  padding:2px;
+} */
+
+/*---------------------------------------------------*/
+
+
+#central {
+  width: 100%;
+  border-left: 1px solid #ccc;
+  box-shadow: -5px 1px 5px #ddd;
+  /*le damos un paddig, para que tenga una separacion de los broder*/
+  padding: 25px;
+  background-color: #fffbfb;
+}
+#central h1 {
+  font-size: 24px;
+  /*para que tenga un acho normal*/
+  font-weight: bolder;
+  /*espacion entre letras*/
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+@media screen and (min-width: 750px) {
+  #content {
+    flex-direction: row;
+  }
+  #lateral {
+    width: 25%;
+    /*como minimo de altura */
+    min-height: 500px;
+  }
+
+  #central {
+    width: 75%;
+  }
+}
+
+/*--------------------------------PRODUCTOS-------------------------------------------*/
+
+.product {
+background-color: white;
+ 
+  margin-bottom: 20px;
+  padding: 10px;
+  /*centramos todo el contenido*/
+  text-align: center;
+  /*esto permite tener la sombra*/
+  box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+}
+
+.product img {
+  /*esto es para que las imagenes sean responsivos , ya sea por la altura y la anchura,IMPORTANTE PARA CUALQUIER IMAGEN*/
+  max-width: 100%;
+  /*interesante para */
+  min-height: 200px;
+  margin-bottom: 10px;
+}
+.table-carrito{
+  text-align: center;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.table-carrito tr:first-child{
+background-color: #363636;
+color: #fff;
+}
+
+.table-carrito tr:nth-child(2n+2){
+  background-color: #c8c8c8;
+  
+  }
+
+.table-carrito .carrito{
+  /*esto es para que las imagenes sean responsivos , ya sea por la altura y la anchura,IMPORTANTE PARA CUALQUIER IMAGEN*/
+ 
+  max-width: 60px;
+ 
+  max-height: 60px;
+
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+@media screen and (min-width: 740px) {
+  .table-carrito .carrito{
+    /*esto es para que las imagenes sean responsivos , ya sea por la altura y la anchura,IMPORTANTE PARA CUALQUIER IMAGEN*/
+   
+    max-width: 75px;
+   
+    max-height: 75px;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+
+.product h2 {
+  /* flex: <flex-grow> <flex-shrink> <flex-basis> */
+  flex: 0 0 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.product p {
+  text-align: center;
+  font-weight: bold;
+  color:#555;
+  margin-bottom: 10px;
+}
+.product .boton-comprar{
+  /*inline block se comporta como linea pero si se puede redimensionar ancho y largo*/
+  display: inline-block;
+  text-decoration: none;
+  background-color: #0182CB;
+  padding: 10px 15px;
+  color: white;
+  transition: all 300ms;
+}
+ .boton-comprar:hover{
+
+  background-color: #062c46;
+  color: white;
+}
+.product .enlace-pro{
+  text-decoration: none;
+  color: #000;
+}
+.product .enlace-pro:hover{
+color:#555;
+}
+
+/*--------------------------------PRODUCTOS RESPONSIVOS--------------------------------*/
+
+@media screen and (min-width: 480px) {
+  .contenedor-producto {
+    display: flex;
+    /*permite el desbordamiento(es muy importante para hacerlo responsivo)*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .product {
+    /* ahora vamos hacer que su ancho sea responsivo */
+    flex: 0 1 calc(48% - 1rem);
+    /* flex-shrink:1; tiene que colorar a las cajas hijas/se va encaojer mas que el resto si es 0 la caja no se va encojer nunca y tomara el acho que se le dio y no se encojera y si es 1 es un poquito mas pequeño pero casi indetectable /o por defecto a la clase de todos los hijos */
+    /* flex-grow: 0;  por defecto viene en 0 y se tiene que colorar a las cajas hijas/o por defecto a la clase de todos los hijos */
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .product {
+    /* ahora vamos hacer que su ancho sea responsivo */
+    flex: 0 1 calc(33% - 1rem);
+    /* flex-shrink:1; tiene que colorar a las cajas hijas/se va encaojer mas que el resto si es 0 la caja no se va encojer nunca y tomara el acho que se le dio y no se encojera y si es 1 es un poquito mas pequeño pero casi indetectable /o por defecto a la clase de todos los hijos */
+    /* flex-grow: 0;  por defecto viene en 0 y se tiene que colorar a las cajas hijas/o por defecto a la clase de todos los hijos */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .product {
+    /* ahora vamos hacer que su ancho sea responsivo */
+    flex: 0 1 calc(25% - 1rem);
+    /* flex-shrink:1; tiene que colorar a las cajas hijas/se va encaojer mas que el resto si es 0 la caja no se va encojer nunca y tomara el acho que se le dio y no se encojera y si es 1 es un poquito mas pequeño pero casi indetectable /o por defecto a la clase de todos los hijos */
+    /* flex-grow: 0;  por defecto viene en 0 y se tiene que colorar a las cajas hijas/o por defecto a la clase de todos los hijos */
+  }
+}
+
+/*---------producto individual------------*/
+.detail-product{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+.image{
+
+width: 100%;
+margin-bottom: 20px;
+}
+.image img{
+  max-width: 100%;
+  min-height: 300px;
+ 
+  }
+.data{
+ 
+width: 100%;
+}
+.data .descripcion{
+  margin-bottom: 20px;
+
+}
+.data .price{
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #444;
+}
+.boton-comprar-ver{
+
+width: 90%;
+margin: 0 auto;
+text-align: center;
+}
+
+@media screen and (min-width: 880px) {
+  .detail-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    }
+    .image{
+      width: 50%;
+      }
+      .data{
+        
+      width: 40%;
+      }
+      .boton-comprar-ver{
+        width: 40%;
+        }
+}
+
+
+/*-----------------FOTTTER--------------*/
+#footer{
+  text-align:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color:white;
+  background-color: #222;
+  border-top: 5px solid #01b1ea;
+}
+
+/*------------pedido----------*/
+/*--------------*/
+.contenedor-carrito{
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  
+  justify-content:space-between;
+}
+
+.contenedor-delete{
+  display: flex;
+  flex-direction:column;
+
+}
+
+.contenedor-confirma{
+  display: flex;
+  flex-direction:column;
+justify-content:flex-end;
+}
+
+@media screen and (min-width: 500px) {
+  .contenedor-carrito{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  .contenedor-delete{
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+  }
+
+  .contenedor-confirma{
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    column-gap:10px;
+  justify-content:flex-end;
+  }
+  .contenedor-confirma .precio{
+    margin-bottom: 15px;
+  }
+}
